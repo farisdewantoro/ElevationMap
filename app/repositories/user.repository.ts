@@ -1,25 +1,27 @@
-import { User } from "../models";
+import { Role, User } from "../models";
 import { FindOptions } from "sequelize/dist";
 import { CreateUserDTO } from "../dtos/create.user.dto";
-class UserRepository{
-    private model: any;
-  
-    constructor (model: any) {
-      this.model = model;
-    }
-    
-    async findAll():Promise<User[]>{
-        return await this.model.findAll()
-    }   
+class UserRepository {
+  private model: any;
 
-    async findOne(param:FindOptions):Promise<User>{
-      return await this.model.findOne(param)
-    }
-
-    async create(param:CreateUserDTO):Promise<User>{
-      return await this.model.create(param)
-    }
-   
+  constructor(model: any) {
+    this.model = model;
   }
 
-  export default UserRepository
+  async findAll(): Promise<User[]> {
+    return await this.model.findAll({
+      include: 'role'
+    })
+  }
+
+  async findOne(param: FindOptions): Promise<User> {
+    return await this.model.findOne(param)
+  }
+
+  async create(param: CreateUserDTO): Promise<User> {
+    return await this.model.create(param)
+  }
+
+}
+
+export default UserRepository

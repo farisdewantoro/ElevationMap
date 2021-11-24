@@ -1,29 +1,33 @@
-import {BaseModel, BaseModelAttributes} from "./base.model";
+import { BaseModel, BaseModelAttributes } from "./base.model";
 import {
-    DataTypes, Model, Sequelize,Optional,
+    DataTypes, Model, Sequelize, Optional, Association,
 } from 'sequelize'
+import { User } from ".";
 
 interface RoleModelAttributes extends BaseModelAttributes {
-    name:string;
-  }
+    name: string;
+}
 
-  interface UserCreationAttributes{
-    username:string;
-    password:string;
-  }
+interface RoleModelAttributes {
+    name: string;
+}
 
-class Role extends BaseModel<RoleModelAttributes,UserCreationAttributes> implements RoleModelAttributes{
-    public name!:string;
-
+class Role extends BaseModel<RoleModelAttributes, RoleModelAttributes> implements RoleModelAttributes {
+    public name!: string;
+    public readonly users?: User[]
+    public static associations: {
+        classes: Association<Role, User>
+    }
     public static initialize(sequelize: Sequelize) {
         let defaultField = this.baseInit()
         this.init({
             ...defaultField,
-            name:{
-                type:DataTypes.STRING
+            name: {
+                type: DataTypes.STRING
             }
-       
+
         }, { sequelize: sequelize })
+
     }
 }
 
