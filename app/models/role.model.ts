@@ -3,9 +3,8 @@ import {
     DataTypes, Model, Sequelize,Optional,
 } from 'sequelize'
 
-interface UserModelAttributes extends BaseModelAttributes {
-    username:string;
-    password:string;
+interface RoleModelAttributes extends BaseModelAttributes {
+    name:string;
   }
 
   interface UserCreationAttributes{
@@ -13,24 +12,19 @@ interface UserModelAttributes extends BaseModelAttributes {
     password:string;
   }
 
-class User extends BaseModel<UserModelAttributes,UserCreationAttributes> implements UserModelAttributes{
-    public username!:string;
-    public password!:string;
+class Role extends BaseModel<RoleModelAttributes,UserCreationAttributes> implements RoleModelAttributes{
+    public name!:string;
 
     public static initialize(sequelize: Sequelize) {
         let defaultField = this.baseInit()
-
         this.init({
             ...defaultField,
-            username:{
+            name:{
                 type:DataTypes.STRING
-            },
-            password:{
-                type:DataTypes.TEXT
-            },
-         
+            }
+       
         }, { sequelize: sequelize })
     }
 }
 
-export default User
+export default Role
