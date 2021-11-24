@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import {makeStyles, Typography } from "@material-ui/core";
 import Logo from '../../../Images/Logo/logo.png'
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className={classes.welcome}>
       <Typography variant="h3">Selamat Datang</Typography>
-      <img src={Logo} />
+      <img src={Logo} alt="Logo Dinas Pekerjaan Umum Bukit Tinggi"/>
       <Typography variant="h6">Username</Typography>
     </div>
   );

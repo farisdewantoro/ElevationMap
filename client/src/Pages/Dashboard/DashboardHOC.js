@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Footer from '../../Components/Footer/Footer';
@@ -8,12 +8,11 @@ import { Container, Grid, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     container: {
         marginTop:theme.spacing(10),
-        backgroundColor: '#fefefe'
+        backgroundColor: '#fefefe',
     }
   }));
 
 const DashboardHOC = () => {
-    const [sidebar, setSidebar] = useState(true);
     const classes = useStyles();
     
     return (

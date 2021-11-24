@@ -1,15 +1,16 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles((theme) => ({
+export const SidebarStyle = makeStyles((theme) => ({
     container: {
         height: '100vh',
         color: '#fefefe',
+        position: 'relative',
         paddingTop:theme.spacing(10),
         backgroundColor: theme.palette.primary.main,
         [theme.breakpoints.up('sm')]:{
           backgroundColor: '#fefefe',
           color: '#555',
-          border: "1px solid #ece7e7"
+          border: "1px solid #ece7e7",
         }
     },
     logo: {

@@ -3,20 +3,21 @@ import {
   Divider,
   Typography,
   Container,
+  Paper
 } from "@material-ui/core";
 import LocationCity from "@material-ui/icons/LocationCity";
 import FilterHdrIcon from "@material-ui/icons/FilterHdr";
 import MapIcon from "@material-ui/icons/Map";
 import HomeIcon from '@material-ui/icons/Home';
-import { useStyles } from "./SidebarStyle";
+import { SidebarStyle } from "./SidebarStyle";
 import { NavLink } from "react-router-dom";
 import logo from '../../Images/Logo/logo.png'
 
 export default function ListDividers() {
-  const classes = useStyles();
+  const classes = SidebarStyle();
 
   return (
-    <Container className={classes.container}>
+    <Container className={classes.container} component={Paper} >
       <div>
         <img src={logo} className={classes.logo} alt="Logo Dinas Pekerjaan Umum Bukit Tinggi" />
         <Typography className={classes.userInfo}>Username : </Typography>
