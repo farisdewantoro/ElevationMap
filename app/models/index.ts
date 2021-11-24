@@ -1,5 +1,5 @@
 import { Options, Sequelize } from 'sequelize'
-import { DATABASE_MYSQL } from '../env/env.config'
+import { DATABASE_MYSQL } from '../../config/env.config'
 import User from './user.model'
 import Role from './role.model'
 const sequelize = new Sequelize(

@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -L",
+    "start": "nodemon -L index.ts",
+    "dev": "NODE_ENV=development nodemon -L",
     "client": "cd client && react-scripts start"
   },
   "author": "",
@@ -26,6 +27,7 @@
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.6",
     "@types/passport": "^1.0.7",
     "@types/validator": "^13.7.0",
     "bcryptjs": "^2.4.3",

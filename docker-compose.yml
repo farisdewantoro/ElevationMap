@@ -21,17 +21,19 @@ services:
     build:
       context: ./
       args:
-        ENV_NAME: local
+        ENV_NAME: production
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
     command: npm run start
     volumes:
       - ./app:/src/app
       - ./index.ts:/src/index.ts
       - ./package.json:/src/package.json
+      - ./config:/src/config
+      - ./seeders:/src/seeders
       - /src/node_modules
     depends_on:
       - database
@@ -39,4 +41,4 @@ networks:
   internal:
     driver: bridge
 volumes:
-  my-db:
+  my-db: null
